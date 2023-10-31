@@ -17,7 +17,7 @@ class SelectedOption extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [Text(selectedTitle  , style: GoogleFonts.poppins(
-          fontSize: 20 ,
+          fontSize: 22 ,
           color: Colors.white,
           fontWeight: FontWeight.bold
         ),), Icon(Icons.check)],

@@ -9,7 +9,7 @@ class UnSelectedOption extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(unSelectedtitle , style: GoogleFonts.poppins(
-      fontSize: 18,
+      fontSize: 22,
       color: Colors.white,
     ),);
   }
