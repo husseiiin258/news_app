@@ -51,6 +51,53 @@ class _SettingsViewState extends State<SettingsView> {
           ),
         ),
         drawer: CustomDrawer(onCategoryClicked:allCategories ),
+        body: Container(
+          margin: EdgeInsets.only(left: 20 , top: 40),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                child: Text(
+                "Language", style: GoogleFonts.poppins(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold
+                ),
+                ),
+              ),
+              GestureDetector(
+                onTap: (){},
+                child: Container(
+
+                  height: 50,
+                  width: mediaQuery.width,
+                  margin: EdgeInsets.symmetric(horizontal: 30, vertical: 16),
+                  padding: EdgeInsets.symmetric(horizontal: 10),
+                  decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                          color: Color(0xff39A552), width: 1.5)),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                     "English", style: GoogleFonts.poppins(
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        color: Color(0xff39A552),
+                      ),
+                      ),
+                      Icon(
+                        Icons.arrow_drop_down,
+                        color: Color(0xff39A552),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
