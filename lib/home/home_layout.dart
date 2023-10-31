@@ -26,7 +26,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         CategoryImage: "assets/images/sports.png",
         CategoryColor: Color(0xffC91C22)),
     CategoryModel(
-        CategoryId: "politics",
+        CategoryId: "general",
         CategoryTitle: "Politics",
         CategoryImage: "assets/images/Politics.png",
         CategoryColor: Color(0xff003E90)),
@@ -41,7 +41,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         CategoryImage: "assets/images/bussines.png",
         CategoryColor: Color(0xffCF7E48)),
     CategoryModel(
-        CategoryId: "environment",
+        CategoryId: "entertainment",
         CategoryTitle: "Environment",
         CategoryImage: "assets/images/environment.png",
         CategoryColor: Color(0xff4882CF)),
