@@ -3,8 +3,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/home/home_layout.dart';
+import 'package:provider/provider.dart';
 
+import '../app_provider.dart';
 import '../home/custom_drawer.dart';
+import 'language_bottom_sheet.dart';
 
 
 class SettingsView extends StatefulWidget {
@@ -19,6 +22,8 @@ class SettingsView extends StatefulWidget {
 class _SettingsViewState extends State<SettingsView> {
   @override
   Widget build(BuildContext context) {
+    var appProvider = Provider.of<AppProvider>(context);
+
     var mediaQuery = MediaQuery.of(context).size;
 
     return Container(
@@ -41,7 +46,7 @@ class _SettingsViewState extends State<SettingsView> {
                 )),
             elevation: 0,
             centerTitle: true,
-            title: Text("Settings",
+            title: Text(appProvider.currentLocale=="en" ?"Settings" : "الاعدادات",
               style: GoogleFonts.exo(
                   color: Colors.white,
                   fontWeight: FontWeight.normal,
@@ -57,15 +62,17 @@ class _SettingsViewState extends State<SettingsView> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                child: Text(
-                "Language", style: GoogleFonts.poppins(
+                child: Text(appProvider.currentLocale=="en" ?
+                "Language" : "اللغة", style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.bold
                 ),
                 ),
               ),
               GestureDetector(
-                onTap: (){},
+                onTap: (){
+                  showLanguageSheet(context);
+                },
                 child: Container(
 
                   height: 50,
@@ -80,8 +87,8 @@ class _SettingsViewState extends State<SettingsView> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                     "English", style: GoogleFonts.poppins(
+                      Text(appProvider.currentLocale=="en" ?
+                     "English" : "العربية", style: GoogleFonts.poppins(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         color: Color(0xff39A552),
@@ -106,5 +113,9 @@ class _SettingsViewState extends State<SettingsView> {
 
     Navigator.pop(context);
     Navigator.pushNamed(context, HomeLayout.routeName);
+  }
+  void showLanguageSheet(context) {
+    showModalBottomSheet(
+        context: context, builder: (context) => LanguageBottomSheet());
   }
 }

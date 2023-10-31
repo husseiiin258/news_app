@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:news_app/home/custom_drawer.dart';
 import 'package:news_app/model/news_details_view.dart';
+import 'package:provider/provider.dart';
 
+import '../app_provider.dart';
 import '../model/category_item.dart';
 import '../model/category_model.dart';
 
@@ -30,7 +32,7 @@ class _HomeLayoutState extends State<HomeLayout> {
         CategoryColor: Color(0xff003E90)),
     CategoryModel(
         CategoryId: "health",
-        CategoryTitle: "Health",
+        CategoryTitle:  "Health",
         CategoryImage: "assets/images/health.png",
         CategoryColor: Color(0xffED1E79)),
     CategoryModel(
@@ -53,6 +55,7 @@ class _HomeLayoutState extends State<HomeLayout> {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context).size;
+    var appProvider = Provider.of<AppProvider>(context);
     return Container(
       height: mediaQuery.height,
       width: mediaQuery.width,
@@ -73,8 +76,8 @@ class _HomeLayoutState extends State<HomeLayout> {
             )),
             elevation: 0,
             centerTitle: true,
-            title: Text(selectedCategory==null ?
-            "News App" : selectedCategory!.CategoryTitle,
+            title: Text(selectedCategory==null ? appProvider.currentLocale=="en" ?
+            "News App" :"الأخبار" : selectedCategory!.CategoryTitle,
               style: GoogleFonts.exo(
                   color: Colors.white,
                   fontWeight: FontWeight.normal,
@@ -91,8 +94,8 @@ class _HomeLayoutState extends State<HomeLayout> {
             Container(
               alignment: Alignment.centerLeft,
               margin: EdgeInsets.only(left: 25, top: 30),
-              child: Text(
-                "Pick your category \nof interest",
+              child: Text(appProvider.currentLocale=="en" ?
+                "Pick your category \nof interest" : "أختر فئتك المفضلة",
                 style: GoogleFonts.poppins(
                   fontSize: 22,
                   fontWeight: FontWeight.bold,
