@@ -105,8 +105,8 @@ class _HomeLayoutState extends State<HomeLayout> {
             ),
             Expanded(
               child: GridView.builder(
-                padding: EdgeInsets.all(30),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                padding: const EdgeInsets.all(30),
+                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 2,
                     mainAxisSpacing: 20,
                     crossAxisSpacing: 20,
